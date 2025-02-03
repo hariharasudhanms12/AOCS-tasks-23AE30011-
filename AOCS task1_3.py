@@ -34,19 +34,21 @@ Kp = 17
 Ki = 30
 Kd = 11
 
+# transfer function of controller
 controller_tf = Kp + (Ki/s) + s*Kd
 
 # H is closed loop transfer function
 closed_tf = control.feedback(controller_tf*system_tf, 1)
 
 t = numpy.linspace(1,10,500) # this creates 500 equally spaced datapoints between 1 and 10 
+
 t,y = control.step_response(closed_tf, T = t) # gives the step response of the function
 noise_adder(y)
 
-t,y1 = control.forced_response(closed_tf, T = t, U = t) # gives the step response of the function
+t,y1 = control.forced_response(closed_tf, T = t, U = t) # gives the unit ramp response of the function
 noise_adder(y1)
 
-t,y2 = control.forced_response(closed_tf, T = t, U = numpy.sin(t)) # gives the step response of the function
+t,y2 = control.forced_response(closed_tf, T = t, U = numpy.sin(t)) # gives the sinusoidal response of the function
 noise_adder(y2)
 
 orig_sine = numpy.sin(t)
