@@ -16,3 +16,5 @@ This approach obtains the open loop system output for a unit step response and s
 Then a separate pid_controller function is defined which calculates the PID input using the updated array (array was updated with noise) and the setpoint (1 for unit step response).
 
 However, this approach did not work. The derivative term in the PID output amplified the noise and thus caused irregular oscillations in the system response.
+
+For detailed documentation of other tasks, refer [https://docs.google.com/document/d/1H4a6S2VNPJjz3OR8h_iWlZKPtPQp9CI9E5nP6w5oi8U/edit?usp=sharing]([url](https://docs.google.com/document/d/1H4a6S2VNPJjz3OR8h_iWlZKPtPQp9CI9E5nP6w5oi8U/edit?tab=t.0))
